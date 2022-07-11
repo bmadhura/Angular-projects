@@ -6,10 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { SharedModule } from '../shared/shared.module';
+import { PopupComponent } from './components/popup/popup.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    PopupComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +25,11 @@ import { SharedModule } from '../shared/shared.module';
     MatIconModule,
     MatTableModule,
     SharedModule,
-  ]
+    MatDialogModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatRadioModule
+  ],
+  providers: []
 })
 export class PokemonModule { }

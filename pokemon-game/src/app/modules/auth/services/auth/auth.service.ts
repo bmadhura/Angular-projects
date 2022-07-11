@@ -1,16 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { ILoginData } from 'src/app/app.types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
+  baseUrl: string = "http://localhost:3000/";
 
-  login() {
-    return this.httpClient.post('http://localhost:3000/auth/login', {
-      email: 'professor.oak@pokedex.com',
-      password: 'pikapi',
-    });
+  login(data:ILoginData) {
+    return this.httpClient.post(`${this.baseUrl}auth/login`, data, this.httpHeader);
   }
+
+  httpHeader = {
+    headers: new HttpHeaders({
+      'Authorization' : this.getAuthToken() || "",
+    }),
+  };
+
+  getAuthToken() {
+    return localStorage.getItem('token');
+  }
+
+  // get(){
+  //   return this.httpClient.get(`${environment.baseUrl}pokemon`,this.httpHeader)
+  // }
 }

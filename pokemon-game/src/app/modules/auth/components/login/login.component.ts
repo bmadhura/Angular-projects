@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormControlName, Validator, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router, Route } from '@angular/router';
+import { ILoginData } from 'src/app/app.types';
  
 @Component({
   selector: 'app-login',
@@ -13,6 +14,8 @@ export class LoginComponent implements OnInit {
   email = 'email';
   password = 'password';
   token: string = "";
+
+  loginData!:ILoginData;
 
   constructor(private auth:AuthService, private router:Router) { }
 
@@ -35,7 +38,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    this.auth.login().subscribe(response =>{
+
+    this.loginData = {
+      email: String(this.loginForm.value.email),
+      password: String(this.loginForm.value.password)
+    }
+
+    this.auth.login(this.loginData).subscribe(response =>{
       this.token = Object(response).data.token,
       localStorage.setItem('token',this.token);
       console.log(this.token);

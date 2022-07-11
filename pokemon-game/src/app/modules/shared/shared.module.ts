@@ -6,12 +6,14 @@ import { InvertDirective } from './directives/invert/invert.directive';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { DateModifyPipe } from './pipes/date-modify.pipe';
 
 @NgModule({
   declarations: [
     ButtonComponent,
     InputFieldsComponent,
     InvertDirective,
+    DateModifyPipe,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     InputFieldsComponent,
     ButtonComponent,
     InvertDirective,
+    DateModifyPipe,
   ]
 })
 export class SharedModule { }

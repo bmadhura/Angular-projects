@@ -8,8 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptor/auth/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './modules/auth/auth.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { JwtModule } from '@auth0/angular-jwt';
+
 
 @NgModule({
   declarations: [
@@ -23,13 +24,22 @@ import { SharedModule } from './modules/shared/shared.module';
     MatButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() { 
+        return localStorage.getItem('token');
+        }
+      }
+    }
+  )
   ],
+
   providers: [
     { provide: HTTP_INTERCEPTORS, 
       useClass: AuthInterceptor, 
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

@@ -9,10 +9,10 @@ export class InvertDirective{
 
   @HostListener('mouseover') onhoverin() {
     this.el.nativeElement.style.backgroundColor = 'white';
-    this.el.nativeElement.style.color = 'blue';
+    this.el.nativeElement.style.color = '#3F51B5';
   }
   @HostListener('mouseout') onhoverout() {
-    this.el.nativeElement.style.backgroundColor = 'blue';
+    this.el.nativeElement.style.backgroundColor = '#3F51B5';
     this.el.nativeElement.style.color = 'white';
   }
 }
