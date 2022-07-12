@@ -1,0 +1,17 @@
+.loginPage{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loginBlock{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        padding: 2em;
+        border-radius: 4px;
+    }
+
+    .errorMsg{
+        color: red;
+    }
+}

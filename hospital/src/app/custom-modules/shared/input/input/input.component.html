@@ -1,0 +1,10 @@
+<div class="inputs">
+    <input
+      [(ngModel)]="value"
+      (ngModelChange) = "onChange($event)"
+      (blur)="onTouch()"
+      class="inputField"
+      [type] = "type"
+      [placeholder]="placeholder"
+    />
+  </div>
