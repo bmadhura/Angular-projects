@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
       if(user.email === this.loginData.email && user.password === this.loginData.password){
         alert("Login successful!");
         window.localStorage.setItem('token',user.role);
+        if(user.role==='doctor') window.localStorage.setItem('userId',String(user.id));
+
+        if(user.role==='nurse') window.localStorage.setItem('userId',String(user.report));
 
         this.router.navigateByUrl('/home');
       }

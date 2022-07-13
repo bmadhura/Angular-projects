@@ -4,7 +4,11 @@ export interface ILoginData{
 }
 
 export interface IUser{
+    id?:number,
+    name?:string,
+    domain?:string,
     email:string,
     password:string,
     role: string,
+    report?:number | string,
 }
