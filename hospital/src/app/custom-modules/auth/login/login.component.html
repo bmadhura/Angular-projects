@@ -1,0 +1,13 @@
+<div class="loginPage">
+    <div class="loginBlock">
+        <h2>Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+            <app-input formControlName = "email" [type]="email" [placeholder] = "email"></app-input>
+            <span class="errorMsg" *ngIf = "Email!.invalid && Email!.touched">Email is not valid</span>
+        
+            <app-input formControlName = "password" [type]="password" [placeholder] = "password"></app-input>
+            <span class="errorMsg" *ngIf ="Password!.invalid && Password!.touched">Password is not valid</span>
+            <app-button [disabled] ="loginForm!.invalid">Login</app-button>
+          </form>
+    </div>
+</div>

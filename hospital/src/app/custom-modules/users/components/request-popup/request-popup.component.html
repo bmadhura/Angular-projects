@@ -1,0 +1,16 @@
+<form [formGroup]="reqForm" (ngSubmit)="onSubmitreq()">
+  <textarea formControlName="reason" placeholder="Reason"></textarea>
+
+  <div>
+    <mat-form-field>
+    <mat-label>Replace with</mat-label>
+      <mat-select formControlName="replace">
+        <mat-option *ngFor="let item of replaceNurses" [value]="item.id">
+          {{ item.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <app-button>Submit</app-button>
+</form>
